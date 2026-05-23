@@ -35,6 +35,30 @@ export default function Home(){
         </div>
       </div>
 
+      {/* New conversion section: headline, lead copy, and split image/text */}
+      <div className="sec">
+        <div className="sec-label">Why IronPeak</div>
+        <h2 className="sec-h">Transform Faster — Built For Real Results</h2>
+        <p className="sec-p">We pair science-backed programming with personalized coaching to deliver measurable progress. No guesswork — just efficient, proven training that fits your life.</p>
+
+        <div className="split" style={{marginTop:20}}>
+          <div className="split-img">
+            <img src={images.mag1} alt="Personal coaching" />
+          </div>
+          <div className="split-txt">
+            <div className="sq">Personalized Coaching</div>
+            <div className="sh">Programs That Know You</div>
+            <div className="sp">Every plan adapts to your goals, schedule, and ability. Our coaches analyze your progress and refine your program weekly so you keep gaining strength, confidence, and momentum.</div>
+            <ul className="ul-list">
+              <li>Customized progression built for steady results</li>
+              <li>Trusted coaching from certified experts</li>
+              <li>Clear milestones and performance tracking</li>
+            </ul>
+            <button className="sl-btn">Start Your Plan</button>
+          </div>
+        </div>
+      </div>
+
       <div className="mag-grid">
         <div className="mg-big">
           <img src={images.mag1} alt="Strength training" />
