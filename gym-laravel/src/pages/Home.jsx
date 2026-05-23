@@ -1,12 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import { images } from '../assets/imageUrls'
 import '../styles/mag.css'
 
 export default function Home(){
   return (
     <div className="g">
-      <Navbar />
+      
 
       <div className="hero">
         <div className="hero-l">

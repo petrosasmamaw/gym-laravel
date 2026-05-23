@@ -3,6 +3,8 @@ import api, { ensureCsrf } from '../services/api'
 
 export const fetchCurrentUser = createAsyncThunk('auth/fetchCurrentUser', async (_, { rejectWithValue }) => {
   try {
+    // Ensure CSRF cookie is present before fetching current user
+    await ensureCsrf()
     const res = await api.get('/api/me')
     return res.data.user
   } catch (err) {
@@ -45,6 +47,8 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(register.pending, (state) => { state.status = 'loading'; state.error = null })
+      .addCase(login.pending, (state) => { state.status = 'loading'; state.error = null })
       .addCase(fetchCurrentUser.fulfilled, (state, action) => { state.user = action.payload; state.status = 'succeeded' })
       .addCase(fetchCurrentUser.rejected, (state) => { state.user = null; state.status = 'idle' })
       .addCase(register.fulfilled, (state, action) => { state.user = action.payload; state.status = 'authenticated' })

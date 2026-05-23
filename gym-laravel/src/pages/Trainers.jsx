@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTrainers } from '../store/trainerSlice'
-import Navbar from '../components/Navbar'
 import { images, trainerImage } from '../assets/imageUrls'
 import '../styles/mag.css'
 
@@ -16,7 +15,7 @@ export default function Trainers(){
 
   return (
     <div className="g">
-      <Navbar />
+      
       <div className="hero">
         <div className="hero-l">
           <div className="hero-pill"><div className="dot"></div>Elite Coaches</div>

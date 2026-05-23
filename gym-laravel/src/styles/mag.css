@@ -108,3 +108,18 @@
   .mg-sm img{height:110px}
   .tgrid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* Auth page styles: blurred background with transparent card */
+.auth-page{position:relative;min-height:calc(100vh - 72px);display:flex;align-items:center;justify-content:center;padding:40px}
+.auth-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(6px) brightness(0.45);transform:scale(1.02);z-index:0}
+.auth-card{position:relative;z-index:10;background:rgba(10,10,10,0.45);border:1px solid rgba(255,255,255,0.06);padding:28px;border-radius:12px;backdrop-filter:blur(6px);color:#fff;min-width:320px;max-width:480px}
+.auth-card h2{font-size:22px;margin:0 0 6px}
+.auth-card p{margin:0 0 12px}
+.auth-form{display:flex;flex-direction:column;gap:8px}
+.auth-input input{width:100%;padding:12px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:#fff}
+.auth-input input::placeholder{color:rgba(255,255,255,0.6)}
+.auth-btn{background:#FF6200;color:#fff;border:none;padding:12px 14px;border-radius:8px;cursor:pointer;font-weight:600;margin-top:8px}
+
+@media (max-width:600px){
+  .auth-card{width:100%;padding:20px;margin:0 12px}
+}

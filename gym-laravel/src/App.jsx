@@ -9,6 +9,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import { useDispatch } from 'react-redux'
 import { fetchCurrentUser } from './store/authSlice'
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
   const dispatch = useDispatch()
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/trainers" element={<ProtectedRoute><TrainersPage /></ProtectedRoute>} />
