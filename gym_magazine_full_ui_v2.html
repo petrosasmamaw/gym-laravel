@@ -1,0 +1,350 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.g{background:#0c0c0c;color:#fff;font-family:var(--font-sans)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;background:#0c0c0c;border-bottom:1px solid #1e1e1e}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-sq{width:34px;height:34px;background:#FF6200;border-radius:7px;display:flex;align-items:center;justify-content:center}
+.logo-name{font-size:18px;font-weight:500;letter-spacing:-0.5px}
+.logo-sub{font-size:9px;letter-spacing:3px;color:#FF6200;text-transform:uppercase}
+.nav-r{display:flex;gap:24px;align-items:center}
+.nl{font-size:13px;color:#777;cursor:pointer}
+.nl.on{color:#fff}
+.njoin{background:#FF6200;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;cursor:pointer}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.hero-l{padding:60px 36px;display:flex;flex-direction:column;justify-content:center;background:#0c0c0c}
+.hero-pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #FF6200;border-radius:20px;padding:4px 14px;font-size:10px;color:#FF6200;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+.dot{width:6px;height:6px;border-radius:50%;background:#FF6200}
+.hero-h1{font-size:54px;font-weight:500;line-height:1.05;letter-spacing:-2px;margin-bottom:18px}
+.hero-h1 em{color:#FF6200;font-style:normal}
+.hero-p{font-size:15px;color:#888;line-height:1.75;margin-bottom:30px}
+.hero-btns{display:flex;gap:12px;margin-bottom:40px}
+.btn-o{background:#FF6200;color:#fff;border:none;padding:13px 28px;border-radius:7px;font-size:14px;cursor:pointer;font-weight:500}
+.btn-g{background:transparent;color:#fff;border:1px solid #333;padding:13px 28px;border-radius:7px;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.stats{display:flex;gap:32px;padding-top:28px;border-top:1px solid #1e1e1e}
+.sn{font-size:30px;font-weight:500;color:#FF6200}
+.sl{font-size:11px;color:#555;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.hero-r{position:relative;overflow:hidden}
+.hero-r img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.75)}
+.hero-overlay{position:absolute;left:0;top:0;width:35%;height:100%;background:linear-gradient(to right,#0c0c0c,transparent)}
+.hero-badge{position:absolute;bottom:24px;right:24px;background:rgba(0,0,0,0.8);border:1px solid #FF6200;border-radius:10px;padding:12px 18px;text-align:right}
+.hb-n{font-size:20px;font-weight:500;color:#FF6200}
+.hb-l{font-size:11px;color:#888}
+
+.mag-grid{display:grid;grid-template-columns:2fr 1fr;gap:3px;background:#0c0c0c;padding:3px}
+.mg-big{position:relative;overflow:hidden}
+.mg-big img{width:100%;height:340px;object-fit:cover;display:block;filter:brightness(0.7)}
+.mg-col{display:grid;grid-template-rows:1fr 1fr;gap:3px}
+.mg-sm{position:relative;overflow:hidden}
+.mg-sm img{width:100%;height:168px;object-fit:cover;display:block;filter:brightness(0.7)}
+.mg-cap{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,0.85))}
+.mg-tag{font-size:9px;letter-spacing:2px;color:#FF6200;text-transform:uppercase;margin-bottom:4px}
+.mg-title{font-size:15px;font-weight:500;color:#fff;line-height:1.3}
+
+.sec{padding:50px 28px}
+.sec-label{font-size:10px;letter-spacing:3px;color:#FF6200;text-transform:uppercase;margin-bottom:8px}
+.sec-h{font-size:34px;font-weight:500;letter-spacing:-1px;margin-bottom:12px}
+.sec-p{font-size:15px;color:#888;line-height:1.7;max-width:480px;margin-bottom:36px}
+
+.feat4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 28px 50px}
+.fc{background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:20px}
+.fi{width:38px;height:38px;background:#1a0900;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:#FF6200;font-size:20px}
+.ft{font-size:14px;font-weight:500;margin-bottom:6px}
+.fd{font-size:12px;color:#666;line-height:1.6}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:360px}
+.split-img{overflow:hidden}
+.split-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.75)}
+.split-txt{background:#111;padding:50px 40px;display:flex;flex-direction:column;justify-content:center}
+.split-txt2{background:#FF6200;padding:50px 40px;display:flex;flex-direction:column;justify-content:center}
+.sq{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;opacity:.7}
+.sh{font-size:30px;font-weight:500;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.15}
+.sp{font-size:14px;color:#999;line-height:1.75;margin-bottom:24px}
+.sp2{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.75;margin-bottom:24px}
+.sl-btn{display:inline-block;background:#FF6200;color:#fff;border:none;padding:12px 24px;border-radius:7px;font-size:13px;cursor:pointer}
+.sl-btn2{display:inline-block;background:#000;color:#fff;border:none;padding:12px 24px;border-radius:7px;font-size:13px;cursor:pointer}
+.ul-list{list-style:none;margin-bottom:24px}
+.ul-list li{font-size:13px;color:rgba(255,255,255,0.85);padding:5px 0;display:flex;align-items:center;gap:8px}
+.chk{color:#fff;font-size:14px}
+
+.trainer-btn{display:inline-flex;align-items:center;gap:10px;background:#FF6200;color:#fff;border:none;padding:15px 32px;border-radius:8px;font-size:15px;cursor:pointer;margin-bottom:36px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tcard{background:#111;border:1px solid #1e1e1e;border-radius:14px;overflow:hidden}
+.tcard img{width:100%;height:200px;object-fit:cover;object-position:top;display:block;filter:brightness(0.85)}
+.tbody{padding:16px}
+.tname{font-size:16px;font-weight:500;margin-bottom:6px}
+.tmeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ttag{font-size:10px;color:#FF6200;background:#1a0900;border:1px solid #3a1500;padding:3px 10px;border-radius:20px;letter-spacing:.5px}
+.tdesc{font-size:12px;color:#777;line-height:1.65}
+
+.quote-band{background:#FF6200;padding:50px 28px;text-align:center}
+.qb-q{font-size:28px;font-weight:500;letter-spacing:-0.5px;margin-bottom:12px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.3}
+.qb-a{font-size:13px;opacity:.75;letter-spacing:1px;text-transform:uppercase}
+
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.pg-item{position:relative;overflow:hidden}
+.pg-item img{width:100%;height:260px;object-fit:cover;display:block;filter:brightness(0.6)}
+.pg-cap{position:absolute;bottom:0;left:0;right:0;padding:20px}
+.pg-level{font-size:9px;letter-spacing:2px;color:#FF6200;text-transform:uppercase;margin-bottom:6px}
+.pg-name{font-size:18px;font-weight:500;margin-bottom:4px}
+.pg-weeks{font-size:12px;color:#aaa}
+
+.foot{border-top:1px solid #1a1a1a;padding:24px 28px;display:flex;justify-content:space-between;align-items:center}
+.ft-l{font-size:13px;color:#444}
+.ft-r{display:flex;gap:20px}
+.ft-link{font-size:13px;color:#444;cursor:pointer}
+</style>
+
+<div class="g">
+
+<nav class="nav">
+  <div class="logo">
+    <div class="logo-sq">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" y1="6" x2="8" y2="6"/><line x1="16" y1="6" x2="20" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/></svg>
+    </div>
+    <div>
+      <div class="logo-name">IRONPEAK</div>
+      <div class="logo-sub">Elite Fitness</div>
+    </div>
+  </div>
+  <div class="nav-r">
+    <span class="nl on">Home</span>
+    <span class="nl">Programs</span>
+    <span class="nl">Trainers</span>
+    <span class="nl">Nutrition</span>
+    <span class="nl">Pricing</span>
+  </div>
+  <button class="njoin">Join Now</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-l">
+    <div class="hero-pill"><div class="dot"></div>No.1 Elite Gym Platform</div>
+    <h1 class="hero-h1">Forge Your<br><em>Strongest</em><br>Body Ever.</h1>
+    <p class="hero-p">Train under world-class coaches, follow science-backed programs, and unlock the body you've always wanted — whether at the gym or at home.</p>
+    <div class="hero-btns">
+      <button class="btn-o">Start Free Trial</button>
+      <button class="btn-g">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        Watch Intro
+      </button>
+    </div>
+    <div class="stats">
+      <div><div class="sn">12K+</div><div class="sl">Members</div></div>
+      <div><div class="sn">48</div><div class="sl">Programs</div></div>
+      <div><div class="sn">4.9★</div><div class="sl">Rating</div></div>
+      <div><div class="sn">24/7</div><div class="sl">Access</div></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img src="https://picsum.photos/seed/gym001/800/600" alt="Athlete training" />
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">
+      <div class="hb-n">+3,200</div>
+      <div class="hb-l">Active this week</div>
+    </div>
+  </div>
+</div>
+
+<div class="mag-grid">
+  <div class="mg-big">
+    <img src="https://picsum.photos/seed/gym002/900/400" alt="Strength training" />
+    <div class="mg-cap">
+      <div class="mg-tag">Cover story</div>
+      <div class="mg-title">The Science of Strength: How Elite Athletes Build Power That Lasts</div>
+    </div>
+  </div>
+  <div class="mg-col">
+    <div class="mg-sm">
+      <img src="https://picsum.photos/seed/gym003/500/250" alt="Cardio" />
+      <div class="mg-cap">
+        <div class="mg-tag">Cardio</div>
+        <div class="mg-title">HIIT vs Steady-State: Which Burns More Fat?</div>
+      </div>
+    </div>
+    <div class="mg-sm">
+      <img src="https://picsum.photos/seed/gym004/500/250" alt="Nutrition" />
+      <div class="mg-cap">
+        <div class="mg-tag">Nutrition</div>
+        <div class="mg-title">Pre-Workout Meals That Actually Fuel Performance</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="feat4">
+  <div style="height:16px"></div><div></div><div></div><div></div>
+</div>
+
+<div class="feat4" style="margin-top:-16px">
+  <div class="fc">
+    <div class="fi"><i class="ti ti-flame" aria-hidden="true"></i></div>
+    <div class="ft">HIIT Programs</div>
+    <div class="fd">High-intensity intervals designed to burn fat fast and push your limits.</div>
+  </div>
+  <div class="fc">
+    <div class="fi"><i class="ti ti-barbell" aria-hidden="true"></i></div>
+    <div class="ft">Strength Training</div>
+    <div class="fd">Progressive overload plans built by certified strength coaches.</div>
+  </div>
+  <div class="fc">
+    <div class="fi"><i class="ti ti-salad" aria-hidden="true"></i></div>
+    <div class="ft">Nutrition Plans</div>
+    <div class="fd">Custom meal plans synced to your training goals and body type.</div>
+  </div>
+  <div class="fc">
+    <div class="fi"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+    <div class="ft">Progress Tracking</div>
+    <div class="fd">Live analytics and weekly check-ins to keep you on target.</div>
+  </div>
+</div>
+
+<div class="split">
+  <div class="split-img">
+    <img src="https://picsum.photos/seed/gym005/700/500" alt="Training session" />
+  </div>
+  <div class="split-txt">
+    <div class="sq" style="color:#FF6200">Why ironpeak</div>
+    <h2 class="sh">More Than a Gym — It's a Lifestyle.</h2>
+    <p class="sp">Our elite facility combines cutting-edge equipment, expert coaching, and a community of driven individuals who push each other every single day.</p>
+    <ul class="ul-list">
+      <li><span class="chk" style="color:#FF6200"><i class="ti ti-circle-check" aria-hidden="true"></i></span>Certified trainers for every discipline</li>
+      <li><span class="chk" style="color:#FF6200"><i class="ti ti-circle-check" aria-hidden="true"></i></span>State-of-the-art recovery zone</li>
+      <li><span class="chk" style="color:#FF6200"><i class="ti ti-circle-check" aria-hidden="true"></i></span>Personalized 12-week transformation plans</li>
+      <li><span class="chk" style="color:#FF6200"><i class="ti ti-circle-check" aria-hidden="true"></i></span>Nutrition coaching included in all plans</li>
+    </ul>
+    <button class="sl-btn">Explore the Facility</button>
+  </div>
+</div>
+
+<div class="split">
+  <div class="split-txt2">
+    <div class="sq">Our programs</div>
+    <h2 class="sh" style="color:#fff">Results in 12 Weeks — Guaranteed.</h2>
+    <p class="sp2">Every program is built on peer-reviewed research and tested by professional athletes. If you don't see results, you get a full refund.</p>
+    <ul class="ul-list">
+      <li><i class="ti ti-circle-check chk" aria-hidden="true"></i>Beginner to advanced tracks available</li>
+      <li><i class="ti ti-circle-check chk" aria-hidden="true"></i>Home & gym-friendly versions</li>
+      <li><i class="ti ti-circle-check chk" aria-hidden="true"></i>Daily video coaching sessions</li>
+    </ul>
+    <button class="sl-btn2">Browse Programs</button>
+  </div>
+  <div class="split-img">
+    <img src="https://picsum.photos/seed/gym006/700/500" alt="Gym programs" />
+  </div>
+</div>
+
+<div class="prog-grid">
+  <div class="pg-item">
+    <img src="https://picsum.photos/seed/gym007/500/400" alt="Burn program" />
+    <div class="pg-cap">
+      <div class="pg-level">Beginner</div>
+      <div class="pg-name">Total Body Burn</div>
+      <div class="pg-weeks">8 weeks · 4 days/week</div>
+    </div>
+  </div>
+  <div class="pg-item">
+    <img src="https://picsum.photos/seed/gym008/500/400" alt="Power program" />
+    <div class="pg-cap">
+      <div class="pg-level">Intermediate</div>
+      <div class="pg-name">Power & Mass</div>
+      <div class="pg-weeks">12 weeks · 5 days/week</div>
+    </div>
+  </div>
+  <div class="pg-item">
+    <img src="https://picsum.photos/seed/gym009/500/400" alt="Elite program" />
+    <div class="pg-cap">
+      <div class="pg-level">Advanced</div>
+      <div class="pg-name">Elite Athlete Protocol</div>
+      <div class="pg-weeks">16 weeks · 6 days/week</div>
+    </div>
+  </div>
+</div>
+
+<div class="quote-band">
+  <div class="qb-q">"I lost 18kg in 3 months. The coaches, the community, the structure — nothing comes close to what IronPeak gave me."</div>
+  <div class="qb-a">— Daniel K., IronPeak member since 2024</div>
+</div>
+
+<div class="sec">
+  <div class="sec-label">Meet the team</div>
+  <h2 class="sec-h">Our Elite Trainers</h2>
+  <p class="sec-p">Hand-picked certified professionals with proven track records. Every trainer brings unique expertise to accelerate your transformation.</p>
+  <button class="trainer-btn" onclick="toggleT()">
+    <i class="ti ti-users" aria-hidden="true"></i>
+    <span id="tbtnlbl">View All Trainers</span>
+  </button>
+  <div class="tgrid" id="tgrid">
+    <div class="tcard">
+      <img src="https://picsum.photos/seed/trainer101/400/300" alt="Marcus Steel" />
+      <div class="tbody">
+        <div class="tname">Marcus Steel</div>
+        <div class="tmeta"><span class="ttag">Male · 34</span><span class="ttag">Strength</span></div>
+        <div class="tdesc">10-year IFBB competitor turned head coach. Specializes in hypertrophy and powerlifting for serious athletes ready to level up.</div>
+      </div>
+    </div>
+    <div class="tcard">
+      <img src="https://picsum.photos/seed/trainer102/400/300" alt="Sofia Reyes" />
+      <div class="tbody">
+        <div class="tname">Sofia Reyes</div>
+        <div class="tmeta"><span class="ttag">Female · 29</span><span class="ttag">HIIT & Cardio</span></div>
+        <div class="tdesc">Former Olympic track athlete. Designs heart-pumping interval programs that torch calories and build elite-level stamina.</div>
+      </div>
+    </div>
+    <div class="tcard">
+      <img src="https://picsum.photos/seed/trainer103/400/300" alt="James Owusu" />
+      <div class="tbody">
+        <div class="tname">James Owusu</div>
+        <div class="tmeta"><span class="ttag">Male · 31</span><span class="ttag">Functional</span></div>
+        <div class="tdesc">CrossFit Level 3 coach focused on mobility, functional movement, and building an injury-proof, high-performance body.</div>
+      </div>
+    </div>
+    <div class="tcard">
+      <img src="https://picsum.photos/seed/trainer104/400/300" alt="Aisha Patel" />
+      <div class="tbody">
+        <div class="tname">Aisha Patel</div>
+        <div class="tmeta"><span class="ttag">Female · 27</span><span class="ttag">Yoga & Mobility</span></div>
+        <div class="tdesc">Yoga Alliance certified with 8 years experience. Bridges the gap between flexibility, strength, and mental clarity.</div>
+      </div>
+    </div>
+    <div class="tcard">
+      <img src="https://picsum.photos/seed/trainer105/400/300" alt="Dani Cruz" />
+      <div class="tbody">
+        <div class="tname">Dani Cruz</div>
+        <div class="tmeta"><span class="ttag">Male · 33</span><span class="ttag">Boxing</span></div>
+        <div class="tdesc">Ex-professional boxer with a passion for conditioning. His sessions will test your limits and redefine your endurance ceiling.</div>
+      </div>
+    </div>
+    <div class="tcard">
+      <img src="https://picsum.photos/seed/trainer106/400/300" alt="Lena Hoffman" />
+      <div class="tbody">
+        <div class="tname">Lena Hoffman</div>
+        <div class="tmeta"><span class="ttag">Female · 30</span><span class="ttag">Pilates & Core</span></div>
+        <div class="tdesc">Clinical Pilates specialist trained in rehabilitation. Builds deep core strength and corrects movement patterns from the ground up.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="ft-l">© 2026 IronPeak Fitness. All rights reserved.</div>
+  <div class="ft-r">
+    <span class="ft-link">Privacy</span>
+    <span class="ft-link">Terms</span>
+    <span class="ft-link">Contact</span>
+  </div>
+</div>
+
+</div>
+
+<script>
+let shown=true;
+function toggleT(){
+  const g=document.getElementById('tgrid');
+  const b=document.getElementById('tbtnlbl');
+  shown=!shown;
+  g.style.display=shown?'grid':'none';
+  b.textContent=shown?'Hide Trainers':'View All Trainers';
+}
+</script>
