@@ -1,24 +1,31 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import TrainersPage from './pages/Trainers'
-import { useSelector } from 'react-redux'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword'
+import ProtectedRoute from './components/ProtectedRoute'
+import { useDispatch } from 'react-redux'
+import { fetchCurrentUser } from './store/authSlice'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const trainers = useSelector((s) => s.trainers.items)
-  const status = useSelector((s) => s.trainers.status)
-  const error = useSelector((s) => s.trainers.error)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    // attempt to restore session
+    dispatch(fetchCurrentUser())
+  }, [dispatch])
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home previewTrainers={trainers} />} />
-        <Route path="/trainers" element={<TrainersPage />} />
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/trainers" element={<ProtectedRoute><TrainersPage /></ProtectedRoute>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </BrowserRouter>
   )
