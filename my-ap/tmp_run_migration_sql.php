@@ -1,7 +1,52 @@
 <?php
-$dsn = "pgsql:host=ep-patient-breeze-apq3kynu-pooler.c-7.us-east-1.aws.neon.tech;port=5432;dbname=neondb;sslmode=require";
-$user = 'neondb_owner';
-$pass = 'npg_9aAnITKF3qdy';
+// Load composer autoload and Dotenv (if available) to support a local `.env` file.
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+    if (class_exists('Dotenv\\Dotenv')) {
+        try {
+            Dotenv\Dotenv::createImmutable(__DIR__)->safeLoad();
+        } catch (Exception $e) {
+            // ignore dotenv load errors
+        }
+    }
+}
+
+// Build DSN and credentials from environment variables.
+$dsn = null;
+$user = null;
+$pass = null;
+
+$databaseUrl = getenv('DATABASE_URL') ?: getenv('DB_URL');
+if ($databaseUrl) {
+    $parts = parse_url($databaseUrl);
+    if ($parts !== false) {
+        $host = $parts['host'] ?? '127.0.0.1';
+        $port = $parts['port'] ?? '5432';
+        $db = isset($parts['path']) ? ltrim($parts['path'], '/') : null;
+        $user = $parts['user'] ?? null;
+        $pass = $parts['pass'] ?? null;
+        $sslmode = getenv('DB_SSLMODE') ?: 'require';
+        if ($db) {
+            $dsn = "pgsql:host={$host};port={$port};dbname={$db};sslmode={$sslmode}";
+        }
+    }
+} else {
+    $host = getenv('DB_HOST') ?: '127.0.0.1';
+    $port = getenv('DB_PORT') ?: '5432';
+    $db = getenv('DB_DATABASE') ?: null;
+    $user = getenv('DB_USERNAME') ?: getenv('DB_USER');
+    $pass = getenv('DB_PASSWORD') ?: null;
+    $sslmode = getenv('DB_SSLMODE') ?: 'require';
+    if ($db) {
+        $dsn = "pgsql:host={$host};port={$port};dbname={$db};sslmode={$sslmode}";
+    }
+}
+
+if (!$dsn || !$user) {
+    fwrite(STDERR, "Missing database configuration. Set `DATABASE_URL` or `DB_HOST`/`DB_DATABASE`/`DB_USERNAME`/`DB_PASSWORD` in environment or .env\n");
+    exit(1);
+}
+
 try {
     $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     echo "Connected\n";
