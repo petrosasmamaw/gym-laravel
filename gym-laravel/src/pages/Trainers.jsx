@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTrainers } from '../store/trainerSlice'
 import Navbar from '../components/Navbar'
+import { images, trainerImage } from '../assets/imageUrls'
 import '../styles/mag.css'
 
 export default function Trainers(){
@@ -34,7 +35,7 @@ export default function Trainers(){
         </div>
 
         <div className="hero-r">
-          <img src="https://picsum.photos/seed/trainers/800/600" alt="Trainers" />
+          <img src={images.trainersHero} alt="Trainers" />
           <div className="hero-overlay"></div>
           <div className="hero-badge">
             <div className="hb-n">+120</div>
@@ -56,7 +57,7 @@ export default function Trainers(){
         <div className="tgrid">
           {visible.map(t => (
             <div key={t.id} className="tcard">
-              <img src={`https://picsum.photos/seed/tr${t.id}/600/400`} alt={t.name} />
+              <img src={trainerImage(t.id)} alt={t.name} />
               <div className="tbody">
                 <div className="tname">{t.name}</div>
                 <div className="tmeta"><div className="ttag">{t.specialty || 'Coach'}</div></div>

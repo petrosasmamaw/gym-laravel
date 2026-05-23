@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import { images } from '../assets/imageUrls'
 import '../styles/mag.css'
 
 export default function Home(){
@@ -25,7 +26,7 @@ export default function Home(){
         </div>
 
         <div className="hero-r">
-          <img src="https://picsum.photos/seed/gym001/800/600" alt="Athlete training" />
+          <img src={images.hero} alt="Athlete training" />
           <div className="hero-overlay"></div>
           <div className="hero-badge">
             <div className="hb-n">+3,200</div>
@@ -36,7 +37,7 @@ export default function Home(){
 
       <div className="mag-grid">
         <div className="mg-big">
-          <img src="https://picsum.photos/seed/gym002/900/400" alt="Strength training" />
+          <img src={images.mag1} alt="Strength training" />
           <div className="mg-cap">
             <div className="mg-tag">Cover story</div>
             <div className="mg-title">The Science of Strength: How Elite Athletes Build Power That Lasts</div>
@@ -44,14 +45,14 @@ export default function Home(){
         </div>
         <div className="mg-col">
           <div className="mg-sm">
-            <img src="https://picsum.photos/seed/gym003/500/250" alt="Cardio" />
+            <img src={images.mag2} alt="Cardio" />
             <div className="mg-cap">
               <div className="mg-tag">Cardio</div>
               <div className="mg-title">HIIT vs Steady-State: Which Burns More Fat?</div>
             </div>
           </div>
           <div className="mg-sm">
-            <img src="https://picsum.photos/seed/gym004/500/250" alt="Nutrition" />
+            <img src={images.mag3} alt="Nutrition" />
             <div className="mg-cap">
               <div className="mg-tag">Nutrition</div>
               <div className="mg-title">Pre-Workout Meals That Actually Fuel Performance</div>
@@ -68,9 +69,9 @@ export default function Home(){
       </div>
 
       <div className="prog-grid" style={{marginTop:20}}>
-        <div className="pg-item"><img src="https://picsum.photos/seed/gym007/500/400" alt="p1" /><div className="pg-cap"><div className="pg-level">Beginner</div><div className="pg-name">Total Body Burn</div><div className="pg-weeks">8 weeks · 4 days/week</div></div></div>
-        <div className="pg-item"><img src="https://picsum.photos/seed/gym008/500/400" alt="p2" /><div className="pg-cap"><div className="pg-level">Intermediate</div><div className="pg-name">Power & Mass</div><div className="pg-weeks">12 weeks · 5 days/week</div></div></div>
-        <div className="pg-item"><img src="https://picsum.photos/seed/gym009/500/400" alt="p3" /><div className="pg-cap"><div className="pg-level">Advanced</div><div className="pg-name">Elite Athlete Protocol</div><div className="pg-weeks">16 weeks · 6 days/week</div></div></div>
+        <div className="pg-item"><img src={images.prog1} alt="p1" /><div className="pg-cap"><div className="pg-level">Beginner</div><div className="pg-name">Total Body Burn</div><div className="pg-weeks">8 weeks · 4 days/week</div></div></div>
+        <div className="pg-item"><img src={images.prog2} alt="p2" /><div className="pg-cap"><div className="pg-level">Intermediate</div><div className="pg-name">Power & Mass</div><div className="pg-weeks">12 weeks · 5 days/week</div></div></div>
+        <div className="pg-item"><img src={images.prog3} alt="p3" /><div className="pg-cap"><div className="pg-level">Advanced</div><div className="pg-name">Elite Athlete Protocol</div><div className="pg-weeks">16 weeks · 6 days/week</div></div></div>
       </div>
 
       <div className="quote-band" style={{marginTop:24}}>
