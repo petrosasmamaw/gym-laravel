@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './navbar.css'
 
 export default function Navbar(){
@@ -14,9 +15,9 @@ export default function Navbar(){
         </div>
       </div>
       <div className="nav-r">
-        <span className="nl on">Home</span>
+        <NavLink to="/" end className={({isActive}) => "nl" + (isActive ? " on" : "")}>Home</NavLink>
         <span className="nl">Programs</span>
-        <span className="nl">Trainers</span>
+        <NavLink to="/trainers" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Trainers</NavLink>
         <span className="nl">Nutrition</span>
         <span className="nl">Pricing</span>
       </div>

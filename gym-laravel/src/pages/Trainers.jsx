@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTrainers } from '../store/trainerSlice'
-import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import '../styles/mag.css'
 
@@ -17,6 +16,32 @@ export default function Trainers(){
   return (
     <div className="g">
       <Navbar />
+      <div className="hero">
+        <div className="hero-l">
+          <div className="hero-pill"><div className="dot"></div>Elite Coaches</div>
+          <h1 className="hero-h1">Train With<br/><em>World-Class</em><br/>Coaches.</h1>
+          <p className="hero-p">Our trainers bring proven expertise, personalized programming, and relentless support to help you reach your goals faster.</p>
+          <div className="hero-btns">
+            <button className="btn-o">Start Training</button>
+            <button className="btn-g"> <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg> Watch Intro</button>
+          </div>
+          <div className="stats">
+            <div><div className="sn">3K+</div><div className="sl">Active Clients</div></div>
+            <div><div className="sn">120+</div><div className="sl">Years Combined</div></div>
+            <div><div className="sn">4.9★</div><div className="sl">Average Rating</div></div>
+            <div><div className="sn">100%</div><div className="sl">Satisfaction</div></div>
+          </div>
+        </div>
+
+        <div className="hero-r">
+          <img src="https://picsum.photos/seed/trainers/800/600" alt="Trainers" />
+          <div className="hero-overlay"></div>
+          <div className="hero-badge">
+            <div className="hb-n">+120</div>
+            <div className="hb-l">Certified Coaches</div>
+          </div>
+        </div>
+      </div>
 
       <div className="sec">
         <div className="sec-label">Our Team</div>
