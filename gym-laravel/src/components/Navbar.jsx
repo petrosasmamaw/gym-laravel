@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { logout } from '../store/authSlice'
+import { logout, clearUser } from '../store/authSlice'
 import './navbar.css'
 
 export default function Navbar(){
@@ -10,7 +10,13 @@ export default function Navbar(){
   const navigate = useNavigate()
 
   const doLogout = async () => {
-    await dispatch(logout())
+    // optimistically clear local user so UI updates immediately
+    dispatch(clearUser())
+    try {
+      await dispatch(logout())
+    } catch (e) {
+      // ignore - local state already cleared
+    }
     navigate('/login')
   }
 
@@ -25,13 +31,15 @@ export default function Navbar(){
           <div className="logo-sub">Elite Fitness</div>
         </div>
       </div>
-      <div className="nav-r">
-        <NavLink to="/" end className={({isActive}) => "nl" + (isActive ? " on" : "")}>Home</NavLink>
-        <span className="nl">Programs</span>
-        <NavLink to="/trainers" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Trainers</NavLink>
-        <span className="nl">Nutrition</span>
-        <span className="nl">Pricing</span>
-      </div>
+      {user && (
+        <div className="nav-r">
+          <NavLink to="/" end className={({isActive}) => "nl" + (isActive ? " on" : "")}>Home</NavLink>
+          <span className="nl">Programs</span>
+          <NavLink to="/trainers" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Trainers</NavLink>
+          <span className="nl">Nutrition</span>
+          <span className="nl">Pricing</span>
+        </div>
+      )}
       <div style={{display:'flex',gap:12,alignItems:'center'}}>
         {user ? (
           <>

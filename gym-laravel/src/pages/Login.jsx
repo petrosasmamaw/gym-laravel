@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 import { login } from '../store/authSlice'
 import { useNavigate } from 'react-router-dom'
 import { images } from '../assets/imageUrls'
@@ -11,7 +12,10 @@ export default function Login(){
   const dispatch = useDispatch()
   const status = useSelector(s => s.auth.status)
   const error = useSelector(s => s.auth.error)
+  const user = useSelector(s => s.auth.user)
   const navigate = useNavigate()
+
+  if (user) return <Navigate to="/" replace />
 
   const submit = async (e) => {
     e.preventDefault()

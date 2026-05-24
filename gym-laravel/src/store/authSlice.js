@@ -44,11 +44,22 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
 const authSlice = createSlice({
   name: 'auth',
   initialState: { user: null, status: 'idle', error: null },
-  reducers: {},
+  reducers: {
+    clearUser(state) {
+      state.user = null
+      state.status = 'idle'
+      state.error = null
+    },
+    setUser(state, action) {
+      state.user = action.payload
+      state.status = action.payload ? 'authenticated' : 'idle'
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, (state) => { state.status = 'loading'; state.error = null })
       .addCase(login.pending, (state) => { state.status = 'loading'; state.error = null })
+      .addCase(fetchCurrentUser.pending, (state) => { state.status = 'loading'; state.error = null })
       .addCase(fetchCurrentUser.fulfilled, (state, action) => { state.user = action.payload; state.status = 'succeeded' })
       .addCase(fetchCurrentUser.rejected, (state) => { state.user = null; state.status = 'idle' })
       .addCase(register.fulfilled, (state, action) => { state.user = action.payload; state.status = 'authenticated' })
@@ -59,5 +70,5 @@ const authSlice = createSlice({
       .addCase(logout.rejected, (state) => { state.user = null; state.status = 'idle' })
   }
 })
-
+export const { clearUser, setUser } = authSlice.actions
 export default authSlice.reducer
