@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Str;
 
@@ -28,7 +29,13 @@ class AuthService
 
     public function logout()
     {
-        auth()->logout();
+        // Ensure we call the session (web) guard logout so the session is cleared
+        try {
+            Auth::guard('web')->logout();
+        } catch (\Throwable $e) {
+            // fallback to facade logout
+            Auth::logout();
+        }
     }
 
     public function sendResetLink(array $data): string
