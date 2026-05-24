@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { logout, clearUser } from '../store/authSlice'
+import { logout, clearUser, setUser } from '../store/authSlice'
+import { fetchCurrentUser } from '../store/authSlice'
 import './navbar.css'
 
 export default function Navbar(){
@@ -18,6 +19,17 @@ export default function Navbar(){
       // ignore - local state already cleared
     }
     navigate('/login')
+
+    // verify session cleared on server; if not, restore user and warn
+    setTimeout(async () => {
+      const res = await dispatch(fetchCurrentUser())
+      if (res.type.endsWith('fulfilled') && res.payload) {
+        // server still has session; restore local state and notify
+        dispatch(setUser(res.payload))
+        console.warn('Server-side logout failed; session still active')
+        alert('Logout failed on server. Please try again.')
+      }
+    }, 300)
   }
 
   return (
