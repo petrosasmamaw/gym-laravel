@@ -46,7 +46,7 @@ export default function Navbar(){
       {user && (
         <div className="nav-r">
           <NavLink to="/" end className={({isActive}) => "nl" + (isActive ? " on" : "")}>Home</NavLink>
-          <span className="nl">Programs</span>
+          <NavLink to="/programs" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Programs</NavLink>
           <NavLink to="/trainers" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Trainers</NavLink>
           <span className="nl">Nutrition</span>
           <span className="nl">Pricing</span>

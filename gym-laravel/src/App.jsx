@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
+import Program from './pages/Program'
 import TrainersPage from './pages/Trainers'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/trainers" element={<ProtectedRoute><TrainersPage /></ProtectedRoute>} />
+        <Route path="/programs" element={<ProtectedRoute><Program /></ProtectedRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
