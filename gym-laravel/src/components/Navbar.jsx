@@ -48,7 +48,7 @@ export default function Navbar(){
           <NavLink to="/" end className={({isActive}) => "nl" + (isActive ? " on" : "")}>Home</NavLink>
           <NavLink to="/programs" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Programs</NavLink>
           <NavLink to="/trainers" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Trainers</NavLink>
-          <span className="nl">Nutrition</span>
+          <NavLink to="/nutrition" className={({isActive}) => "nl" + (isActive ? " on" : "")}>Nutrition</NavLink>
           <span className="nl">Pricing</span>
         </div>
       )}

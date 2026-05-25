@@ -1,0 +1,15 @@
+.nutrition-page{padding:28px}
+.nut-hero{display:flex;gap:20px;align-items:center;margin-bottom:20px}
+.nut-hero-left h1{font-size:28px;margin:0}
+.nut-hero-right img{width:380px;border-radius:10px;object-fit:cover}
+.nut-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.nut-card{background:linear-gradient(180deg,#071021,#06121a);padding:14px;border-radius:10px;color:#fff}
+.nut-card img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+.nut-card h3{margin:0 0 6px 0}
+.nut-cta{margin-top:20px;padding:20px;background:linear-gradient(90deg,#07121a,#081827);border-radius:10px;color:#fff;text-align:center}
+.nut-cta h2{margin:0 0 8px 0}
+
+@media (max-width:700px){
+  .nut-hero{flex-direction:column;align-items:flex-start}
+  .nut-hero-right img{width:100%}
+}
